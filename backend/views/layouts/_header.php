@@ -1,36 +1,37 @@
 <?php
-use yii\bootstrap4\Html;
+/**
+ * User: TheCodeholic
+ * Date: 4/17/2020
+ * Time: 9:20 AM
+ */
+
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Inicio', 'url' => ['/site/index']],
-        ['label' => 'Servicios', 'url' => ['/site/about']],
-        ['label' => 'Contacto', 'url' => ['/site/contact']],
+NavBar::begin([
+    'brandLabel' => Yii::$app->name,
+    'brandUrl' => Yii::$app->homeUrl,
+    'options' => ['class' => 'navbar-expand-lg navbar-light bg-light shadow-sm'],
+    'innerContainerOptions' => [
+        'class' => 'container-fluid'
+    ]
+]);
+$menuItems = [
+    ['label' => 'Create', 'url' => ['/video/create']],
+];
+if (Yii::$app->user->isGuest) {
+    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+} else {
+    $menuItems[] = [
+        'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+        'url' => ['/site/logout'],
+        'linkOptions' => [
+            'data-method' => 'post'
+        ]
     ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Regístrate', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Ingresa', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-            . Html::submitButton(
-                'Salir (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav ml-auto'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-?>
+}
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav ml-auto'],
+    'items' => $menuItems,
+]);
+NavBar::end();

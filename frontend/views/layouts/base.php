@@ -26,11 +26,11 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap h-100 d-flex flex-column">
-    <div class="wrap h-100 d-flex flex-column">
+    
         <?php echo $this->render('_header') ?>
 
         <?php echo $content ?>
-    </div>
+    
 </div>
 
 <?php $this->endBody() ?>

@@ -1,47 +1,38 @@
 <?php
-  echo \yii\bootstrap4\Nav::widget([
-    'options' => [
-      'class' => ''
-    ],
-    'items' => [
-      [
-        'label' => 'Cesta',
-        'url' => ['/cesta/index']
-      ],
-      [
-        'label' => 'Asesorías',
-        'url' => ['/asesoria/index']
-      ],
-      [
-        'label' => 'Mensajes',
-        'url' => ['/mensaje/index']
-      ],
-      [
-        'label' => 'Factura',
-        'url' => ['/factura/index']
-      ],
-      [
-        'label' => 'Configuración',
-        'url' => ['/configuracion/index']
-      ]
+/**
+ * User: TheCodeholic
+ * Date: 4/17/2020
+ * Time: 9:20 AM
+ */
 
-    ]
-
-  ])
 ?>
 
-
-<!-- <ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    A list item
-    <span class="badge bg-primary rounded-pill">14</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    A second list item
-    <span class="badge bg-primary rounded-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    A third list item
-    <span class="badge bg-primary rounded-pill">1</span>
-  </li>
-</ul> -->
+<aside class="shadow" style="flex:1">
+    <?php echo \yii\bootstrap4\Nav::widget([
+    'options' => [
+        'class' => 'd-flex flex-column nav-pills col-6 mt-1 style="flex:1"'
+    ],
+    'items' => [
+        [
+            'label' => 'Tus asesorías',
+            'url' => ['/asesoria/index']
+        ],
+        [
+            'label' => 'Mensajes',
+            'url' => ['/mensajes/index']
+        ],
+        [
+            'label' => 'Facturas',
+            'url' => ['/factura/index']
+        ],
+        [
+            'label' => 'Cesta',
+            'url' => ['/factura/index']
+        ],
+        [
+            'label' => 'Configuración',
+            'url' => ['/factura/index']
+        ]
+    ]
+]) ?>
+</aside>

@@ -14,6 +14,7 @@ return [
     'language'=>'es',
     'sourceLanguage'=>'en',
     'name' => 'AsesoríasWeb',
+    'defaultRoute' => '/categoria/index',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',

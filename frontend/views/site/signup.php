@@ -13,10 +13,10 @@ use yii\bootstrap4\ActiveForm;
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Escribe tus datos</p>
+    <p>Por favor, escribe tus datos</p>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
@@ -26,7 +26,7 @@ use yii\bootstrap4\ActiveForm;
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('Regístrate', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

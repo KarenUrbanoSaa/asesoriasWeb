@@ -90,4 +90,8 @@ class Categoria extends \yii\db\ActiveRecord
     {
         return new \common\models\query\CategoriaQuery(get_called_class());
     }
+
+    public function getUrlImagen(){
+        return Yii::$app->params['frontendUrl'].'Imag/';
+    }
 }

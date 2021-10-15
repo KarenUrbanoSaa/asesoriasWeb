@@ -1,3 +1,478 @@
+/* lo de Willian */
+/* css2 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    padding-bottom: 50px;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    filter: blur(10px)
+}
+
+.capa {
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .2;
+}
+
+.background img {
+    width: 200%;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    z-index: 10;
+    position: relative;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.line {
+    width: 500px;
+    height: 2px;
+    border-style: none;
+    background: #cecece;
+    margin-top: 20px;
+}
+
+.container-comments,
+.container-comments-request {
+    margin-top: 20px;
+}
+
+.container-comments-request {
+    margin-left: 100px;
+}
+
+.comments,
+.comments-request {
+    display: flex;
+}
+
+.photo-perfil {
+    width: 200px;
+    height: 82px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.photo-perfil-request {
+    width: 200px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.photo-perfil-request img {
+    width: 100%;
+    height: 100%;
+}
+
+.photo-perfil img {
+    width: 100%;
+    height: 100%;
+}
+
+.info-comments,
+.info-comments-request {
+    margin-left: 20px;
+    background: #e6e6e6;
+    transition: all 300ms;
+    margin-top: 10px;
+    border-bottom: 6px solid black;
+}
+
+.info-comments .header,
+.info-comments-request .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #019CDE;
+    color: white;
+}
+
+.info-comments p,
+.info-comments-request p {
+    padding: 20px;
+}
+
+.info-comments .footer,
+.info-comments-request .footer {
+    width: 100%;
+    background: white;
+    padding: 10px;
+    color: #5f5f5f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-comments .footer h5,
+.info-comments-request .footer h5 {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.info-comments .icon-heart,
+.info-comments-request .icon-heart {
+    color: #aaaaaa;
+    transition: all 300ms;
+    font-size: 20px;
+}
+
+.info-comments .icon-heart:hover,
+.info-comments-request .icon-heart:hover {
+    color: #d91111;
+    cursor: pointer;
+}
+
+
+/*Contenedor para los datos de comentarios*/
+
+.container-data {
+    width: 100%;
+    bottom: 0px;
+    position: fixed;
+    background: white;
+    padding: 20px;
+    padding-bottom: 80px;
+    z-index: 11;
+    border-top: 6px solid #019CDE;
+}
+
+.photo-input {
+    display: flex;
+}
+
+.perfil-photo {
+    width: 100px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.perfil-photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.photo-input input {
+    width: 400px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border-style: none;
+    outline: 0px;
+    border-bottom: 2px solid #8d8d8d;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.mensaje {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 300px;
+    min-height: 100px;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 16px;
+    background: #ebebeb;
+}
+
+.btn-comment {
+    position: absolute;
+    right: 20px;
+    padding: 10px 80px;
+    font-size: 16px;
+    color: white;
+    background: #019CDE;
+    border-style: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-comment:hover {
+    opacity: 0.9;
+}
+
+.capa-data {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0.8;
+    z-index: 10;
+}
+/* css1 */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: roboto-sans-serif;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 940px;
+    gap: 15px;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.card {
+    height: 350px;
+    width: 300px;
+    overflow: hidden;
+    margin: auto;
+    padding: 10px 30px;
+    border-radius: 2%;
+    border: 1px solid #ffffff;
+    transition: all .4s ease-in-out;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background: linear-gradient(-135deg, #5cbdee, #f3f36a);
+}
+
+.card:hover {
+    height: 500px;
+    width: 300px;
+    border-radius: 2%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+.encabezado img {
+    position: relative;
+    border-radius: 50%;
+    display: block;
+    height: 200px;
+    width: 200px;
+    border-top: 8px solid #fff;
+    border-bottom: 8px solid #fff;
+    object-fit: cover;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+}
+
+.encabezado {
+    position: relative;
+}
+
+.escabezado:before,
+.escabezado:after {
+    content: "";
+    position: absolute;
+    opacity: 0.7;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 15px;
+    list-style: none;
+    text-align: center;
+    height: 30px;
+}
+
+.social li {
+    height: 100px;
+    width: 100px;
+    margin: 0 5px;
+    line-height: 40px;
+    text-align: center;
+    transform: scale(0);
+    transition: all 0.5s ease;
+}
+
+.desplazar {
+    opacity: 0;
+    transition: all .5s ease;
+    transform: translateY(-45px);
+}
+
+.agrandar {
+    transform: scale(0);
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.card:hover .agrandar {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card:hover .desplazar {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.social li a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 05x #7813d6
+}
+
+.info_personal {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    line-height: 2px;
+    color: rgb(19, 10, 10);
+    pointer-events: none;
+}
+
+.info_personal:nth-child(3) {
+    margin: 10px 0px;
+}
+
+.acciones {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.boton {
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 2);
+    padding: 8px 15px;
+    font-size: 12px;
+    margin-top: 10px;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #3cc792, #246b04);
+}
+
+
+/*Apartir de aqui css para calificacion estrellas*/
+
+.txt-center {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    width: 170px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: right;
+    position: relative;
+    font-size: 30px;
+    top: 5px;
+    margin: 10px 30px;
+}
+
+.rating>label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating>label:hover,
+.rating>label:hover~label,
+.rating>input.radio-btn:checked~label {
+    color: transparent;
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before,
+.rating>input.radio-btn:checked~label:before,
+.rating>input.radio-btn:checked~label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+
+/*.button {
+    background: linear-gradient(102deg, #14151d 40%, #0b0911 60%);
+    color: #fff;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+    min-width: 50px;
+    text-decoration: white;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(.90);
+        box-shadow: 0 0 0 0 rbga(256, 256, 256, 1);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 25px rbga(256, 256, 256, 0);
+    }
+    100% {
+        transform: scale(.99);
+        box-shadow: 0 0 0 rbga(256, 256, 256, 0);
+    }
+}*/
+
+/* termina lo de Willian */
+
+
 /* de youtube-clone */
 html,
 body {
