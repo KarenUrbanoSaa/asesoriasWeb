@@ -1,34 +1,27 @@
 <?php
-  echo \yii\bootstrap4\Nav::widget([
-    'options' => [
-      'class' => ''
-    ],
-    'items' => [
-      [
-        'label' => 'Dashboard',
-        'url' => ['/site/index']
-      ],
-      [
-        'label' => 'Mensajes',
-        'url' => ['/site/index']
-      ]
-    ]
+/**
+ * User: TheCodeholic
+ * Date: 4/17/2020
+ * Time: 9:20 AM
+ */
 
-  ])
 ?>
 
-
-<!-- <ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    A list item
-    <span class="badge bg-primary rounded-pill">14</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    A second list item
-    <span class="badge bg-primary rounded-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    A third list item
-    <span class="badge bg-primary rounded-pill">1</span>
-  </li>
-</ul> -->
+<aside class="shadow">
+    <?php echo \yii\bootstrap4\Nav::widget([
+    'options' => [
+        'class' => 'd-flex flex-column nav-pills'
+    ],
+    'encodeLabels' => false,
+    'items' => [
+        [
+            'label' => '<i class="fas fa-home"></i> Home',
+            'url' => ['/video/index']
+        ],
+        [
+            'label' => '<i class="fas fa-history"></i> History',
+            'url' => ['/video/history']
+        ]
+    ]
+]) ?>
+</aside>

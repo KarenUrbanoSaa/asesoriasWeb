@@ -1,3 +1,355 @@
+/* de youtube-clone */
+html,
+body {
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.content-wrapper {
+    flex: 1;
+}
+
+aside {
+    min-width: 200px;
+}
+
+aside .nav-pills .nav-link {
+    border-radius: 0;
+    color: #444444;
+}
+
+
+aside .nav-pills .nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+aside .nav-pills .nav-link.active {
+    background: rgba(0, 0, 0, 0.05);
+    color: #b90000;
+    border-left: 4px solid #b90000;
+}
+
+.content-wrapper {
+    margin-bottom: 200px;
+}
+
+.create-comment .action-buttons {
+    display: none;
+}
+
+.create-comment.focused .action-buttons {
+    display: block;
+}
+
+.comment-item {
+    position: relative;
+}
+
+.comment-avatar {
+    width: 50px;
+}
+
+.sub-comments .comment-avatar {
+    width: 24px;
+}
+
+.comment-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.comment-actions .dropdown-toggle:after {
+    display: none;
+}
+
+.comment-item .media-input {
+    display: none;
+}
+
+.comment-item.edit .media-comment {
+    display: none;
+}
+
+.comment-item.edit .media-input {
+    display: flex;
+}
+
+/* end youtube clone */
+
+
+/* css del index------------------------------------- */
+
+/* Estilo estandar */
+body{
+	font-family:Cambria, Georgia, serif;
+	line-height:1.5;
+	font-size:100%;
+	background:url(bg.png) 0 0 repeat;
+	margin: 0;
+	padding: 0;
+}
+section, hgroup, nav{
+	display:block;
+}
+
+
+/* clearfix */
+.clearfix {
+	clear:both !important;
+}
+
+/* Estilo del contenido del wrapper */
+#wrapper{
+	margin:0 0 3em;
+	padding:10px 7%;
+	text-align:center;
+}
+
+/* Pagina header */
+#wrapper hgroup{
+	margin:50px 0 50px;
+	position:relative;
+}
+
+#wrapper h2{
+	position:relative;
+	margin:0;
+	color:#04538b;
+	text-align:center;
+	text-shadow:1px 1px 1px #777;
+	font-size:33px;
+	font-family:Arial Narrow, Arial, sans-serif;
+}
+
+#wrapper hgroup h3{
+	font-style:italic;
+	font-weight:normal;
+	font-size:18px;
+	text-shadow:0 1px 0 #fafafa;
+	color:#444;
+	margin:0;
+}
+#wrapper hgroup:hover h2{
+	color:#80d2f8;
+	z-index:10;
+	font-size:40px;
+	text-shadow:0 0 20px #EAF8FF;
+}
+
+#wrapper hgroup:hover h3{
+	color:#ccc;
+	font-size:20px;
+}
+
+
+#holder{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 25px;
+	grid-auto-rows: (450px, 450px, 450px);
+	justify-items: stretch;
+	align-items: stretch;
+	grid-template-areas: 
+	"box-1 box-2 box-3",
+	"box-4 box-5 box-6",
+	"box-7 box-8 logo";
+}
+
+@media (max-width: 550px) {
+	#holder{
+		grid-template-columns: 1fr;
+		grid-template-rows:(450px, 450px, 450px, 450px, 450px, 450px, 450px, 450px);
+		grid-template-areas:
+		"box-1",
+		"box-2",
+		"box-3",
+		"box-4",
+		"box-5",
+		"box-6",
+		"box-7",
+		"box-8";
+	}
+}
+
+@media (max-width: 720px){
+	#holder{
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows:(450px, 450px, 450px, 450px);
+		grid-template-areas:
+		"box-1 box-2",
+		"box-3 box-4",
+		"box-5 box-6",
+		"box-7 box-8";
+	}
+}
+
+/* image boxes */
+.box{
+	background-color:#f4f4f4;
+	border:1px solid #ccc;
+	float:left;
+	padding: 10px;
+	position:relative;
+	z-index:5;
+	transform: scale(1);
+	transition: background-color 1s, box-shadow 1s, transform 0.5s;
+}
+
+
+.box-1:hover {
+    background-color: #2f3135;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-2:hover {
+    background-color: #c2c046;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-3:hover {
+    background-color: #d67051;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-4:hover {
+    background-color: #30c1e6;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-5:hover {
+    background-color: #4d6eaa;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-6:hover {
+    background-color: #9f9ea0;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-7:hover {
+    background-color: #2edda9;
+    z-index:10;
+	transform: scale(1.2);
+}
+.box-8:hover {
+    background-color: #816633;
+    z-index:10;
+	transform: scale(1.2);
+}
+
+
+/* titulo holder */
+.box h3{
+	font-size:27px;
+	color:#777;
+	margin:5px 10px;
+	padding:5px 10px;
+	font-family:'Arial Narrow', Arial;
+	letter-spacing:1px;
+	transition: color 1s;
+}
+
+.box-1:hover:hover h3 {
+	color:#fff;
+	border-bottom:1px solid #aaa;
+	text-shadow:1px 1px 1px rgb(8, 8, 8), 2px 2px 1px #888;    
+}
+
+.box-2:hover:hover h3, 
+.box-3:hover:hover h3,
+.box-4:hover:hover h3,
+.box-5:hover:hover h3,
+.box-6:hover:hover h3,
+.box-7:hover:hover h3,
+.box-8:hover:hover h3{
+	color:#333;
+	border-bottom:1px solid #aaa;
+	text-shadow:1px 1px 1px #fff, 2px 2px 1px #888;
+}
+
+/* imagen holder */
+.box .image{
+	margin:10px;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	
+	transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-webkit-transition: opacity 1.5s;
+	-o-transition: opacity 1s;
+}
+.box:hover .image{
+	opacity:1;
+	filter: alpha(opacity=100);
+}
+.box .image img{
+	padding:7px;
+	background:#000;
+}
+.box .image img:hover{
+	background:#333;
+}
+
+/* descripcion texto del holder */
+.box .h6, .box .h6 a{
+	color:rgb(153,153,153);
+	color:rgba(153,153,153,0);
+	text-shadow:0 0 5px #aaa;
+	text-align: center;
+	font-size:16px;
+
+	transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
+	-moz-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
+	-webkit-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
+	-o-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
+}
+.box-1:hover .h6, .box-1:hover .h6 a{
+	text-shadow:0 0 0 #fff;
+	color: #fff;
+}
+.box-2:hover .h6, .box-2:hover .h6 a,
+.box-3:hover .h6, .box-3:hover .h6 a,
+.box-4:hover .h6, .box-4:hover .h6 a,
+.box-5:hover .h6, .box-5:hover .h6 a,
+.box-6:hover .h6, .box-6:hover .h6 a,
+.box-7:hover .h6, .box-7:hover .h6 a,
+.box-8:hover .h6, .box-8:hover .h6 a{
+	text-shadow:0 0 0 #fff;
+	color:rgb(8, 8, 8);
+}
+.box:hover .h6 a{
+	outline:1px dotted #777;
+}
+#overlay{
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	z-index:7;
+	background:rgb(93, 138, 133);
+	background:rgba(119, 177, 169, 0.5);
+	filter: alpha(opacity=50);
+	
+	transition: background-color 0.7s;
+	-moz-transition: background-color 0.7s;
+	-webkit-transition: background-color 0.7s;
+	-o-transition: background-color 0.7s;
+}
+#overlay:hover{
+	background:rgb(33, 93, 104);
+	background:rgba(76, 250, 250, 0);
+	z-index:0;
+	filter: alpha(opacity=0);
+}
+
+/* end css del index---------------------------------------------- */
+
+
 main > .container {
     padding: 70px 15px 20px;
 }
@@ -88,3 +440,4 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+

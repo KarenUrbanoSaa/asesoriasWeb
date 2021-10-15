@@ -5,13 +5,26 @@
     ],
     'items' => [
       [
-        'label' => 'Dashboard',
-        'url' => ['/site/index']
+        'label' => 'Cesta',
+        'url' => ['/cesta/index']
+      ],
+      [
+        'label' => 'Asesorías',
+        'url' => ['/asesoria/index']
       ],
       [
         'label' => 'Mensajes',
-        'url' => ['/site/index']
+        'url' => ['/mensaje/index']
+      ],
+      [
+        'label' => 'Factura',
+        'url' => ['/factura/index']
+      ],
+      [
+        'label' => 'Configuración',
+        'url' => ['/configuracion/index']
       ]
+
     ]
 
   ])
