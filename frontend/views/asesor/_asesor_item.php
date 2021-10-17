@@ -1,6 +1,6 @@
 <div class="card">
     <div class="encabezado">
-        <img src="<?php echo $model->getUrlImagen()."media/".$model->pass?>" width="200" height="200" alt="">
+        <img src="<?php echo $model->getUrlImagen()."media/".$model->foto?>" width="200" height="200" alt="">
     </div>
 
     <div class="contenido">
@@ -26,10 +26,7 @@
         </div>
     </div>
     <div class="acciones">
-        <button class="boton">
-        <span class="fas fa-envelope"></span>
-        Agendar
-    </button>
+    <button class="boton" type="button"><a href="<?php echo "view?id=".$model->id?>">Ver perfil</a></button>
     </div>
     <div class="txt-center">
         <form>

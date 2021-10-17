@@ -17,6 +17,7 @@ use Yii;
  * @property string|null $aptitudes
  * @property string|null $temas_asesoria
  * @property string|null $about_me
+ * @property string|null $foto
  * @property int $categoria_id
  * @property int $subcategoria_id
  *
@@ -66,6 +67,7 @@ class Asesor extends \yii\db\ActiveRecord
             'aptitudes' => 'Aptitudes',
             'temas_asesoria' => 'Temas Asesoria',
             'about_me' => 'About Me',
+            'foto' => 'Foto',
             'categoria_id' => 'Categoria ID',
             'subcategoria_id' => 'Subcategoria ID',
         ];

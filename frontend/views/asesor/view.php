@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Asesor */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Asesors', 'url' => ['index']];
+$this->title = $model->nombre;
+$this->params['breadcrumbs'][] = ['label' => 'Asesores', 'url' => ['index?id='.$model->subcategoria_id]];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -15,33 +15,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'nombre',
-            'apellido',
-            'telefono',
-            'mail',
-            'pass',
-            'estudios:ntext',
-            'aptitudes:ntext',
-            'temas_asesoria:ntext',
-            'about_me:ntext',
-            'categoria_id',
-            'subcategoria_id',
-        ],
-    ]) ?>
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col"><?php echo "Nombre: ".$model->nombre?></div>
+    <div class="col"><?php echo "Apellido: ".$model->apellido?></div>
+    <div class="col"><?php echo "Estudios: ".$model->estudios?></div>
+    <div class="col"><?php echo "Aptitudes: ".$model->aptitudes?></div>
+    <div class="col"><?php echo "Sobre mi: ".$model->about_me?></div>
+  </div>
 
-</div>
