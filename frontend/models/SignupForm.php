@@ -14,8 +14,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $plan;
-    public $foto;
+    public $rol;
 
 
     /**
@@ -26,16 +25,17 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'El nombre de usuario ingresado ya ha sido tomado'],
+            ['username', 'string', 'min' => 4, 'max' => 30],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'string', 'max' => 60],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'La dirección de correo ingresada ya se encuentra registrada'],
 
             ['password', 'required'],
+            ['rol', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
         ];
     }
@@ -57,6 +57,7 @@ class SignupForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
+        $user->rol = $this->rol;
 
         return $user->save() && $this->sendEmail($user);
     }
@@ -76,7 +77,7 @@ class SignupForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
             ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->setSubject('Registro de la cuenta para ' . Yii::$app->name)
             ->send();
     }
 }

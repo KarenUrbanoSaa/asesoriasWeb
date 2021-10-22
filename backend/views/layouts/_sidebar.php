@@ -10,12 +10,12 @@
 <aside class="shadow" style="flex:1">
     <?php echo \yii\bootstrap4\Nav::widget([
     'options' => [
-        'class' => 'd-flex flex-column nav-pills col-6 mt-1 style="flex:1"'
+        'class' => 'd-flex flex-column nav-pills col-6 mt-5 style="flex:1"'
     ],
     'items' => [
         [
-            'label' => 'Tus asesorías',
-            'url' => ['/asesoria/index']
+            'label' => 'Tus cursos',
+            'url' => ['/curso/index']
         ],
         [
             'label' => 'Mensajes',

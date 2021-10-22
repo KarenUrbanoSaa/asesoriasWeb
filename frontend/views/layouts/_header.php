@@ -18,15 +18,17 @@ $menuItems = [
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Regístrate', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Ingresa', 'url' => ['/site/login']];
+    $menuItems[] = ['label' => 'Ser tutor', 'url' => ['/site/enseñar']];
 } else {
-    $menuItems[] = '<li>'
-        . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-        . Html::submitButton(
-            'Salir (' . Yii::$app->user->identity->username . ')',
-            ['class' => 'btn btn-link logout']
-        )
-        . Html::endForm()
-        . '</li>';
+    $menuItems[] = ['label' => 'Cursos tomados', 'url' => ['/estudiante/cursos']];
+    $menuItems[] = ['label' => 'Área de tutor', 'url' => ['/tutor/cursos']];
+    $menuItems[] = [
+        'label' => 'Salir('.Yii::$app->user->identity->username.')',
+        'url' => ['/site/logout'],
+        'linkOptions' => [
+            'data-method' => 'post'
+        ]
+    ];
 }
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav ml-auto'],

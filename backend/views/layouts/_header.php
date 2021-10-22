@@ -1,33 +1,28 @@
 <?php
-/**
- * User: TheCodeholic
- * Date: 4/17/2020
- * Time: 9:20 AM
- */
-
+use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
 NavBar::begin([
     'brandLabel' => Yii::$app->name,
     'brandUrl' => Yii::$app->homeUrl,
-    'options' => ['class' => 'navbar-expand-lg navbar-light bg-light shadow-sm'],
-    'innerContainerOptions' => [
-        'class' => 'container-fluid'
-    ]
+    'options' => [
+        'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
+    ],
 ]);
 $menuItems = [
-    ['label' => 'Create', 'url' => ['/video/create']],
+    ['label' => 'Inicio', 'url' => ['/categoria/index']],
+    ['label' => 'Servicios', 'url' => ['/site/about']],
+    ['label' => 'Contacto', 'url' => ['/site/contact']],
 ];
 if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    $menuItems[] = ['label' => 'Regístrate', 'url' => ['/site/signup']];
+    $menuItems[] = ['label' => 'Ingresa', 'url' => ['/site/login']];
+    $menuItems[] = ['label' => 'Ser tutor', 'url' => ['/site/enseñar']];
 } else {
     $menuItems[] = [
-        'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-        'url' => ['/site/logout'],
-        'linkOptions' => [
-            'data-method' => 'post'
-        ]
+        'label' => 'Salir('.Yii::$app->user->identity->username.')',
+        'url' => ['/site/logout']
     ];
 }
 echo Nav::widget([
@@ -35,3 +30,5 @@ echo Nav::widget([
     'items' => $menuItems,
 ]);
 NavBar::end();
+
+?>

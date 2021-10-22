@@ -17,8 +17,8 @@ class AsesorSearch extends Asesor
     public function rules()
     {
         return [
-            [['id', 'categoria_id', 'subcategoria_id'], 'integer'],
-            [['nombre', 'apellido', 'telefono', 'mail', 'pass', 'estudios', 'aptitudes', 'temas_asesoria', 'about_me'], 'safe'],
+            [['id', 'categoria_id', 'subcategoria_id', 'user_id'], 'integer'],
+            [['nombre', 'apellido', 'telefono', 'mail', 'pass', 'estudios', 'aptitudes', 'temas_asesoria', 'about_me', 'foto'], 'safe'],
         ];
     }
 
@@ -61,6 +61,7 @@ class AsesorSearch extends Asesor
             'id' => $this->id,
             'categoria_id' => $this->categoria_id,
             'subcategoria_id' => $this->subcategoria_id,
+            'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
@@ -71,7 +72,8 @@ class AsesorSearch extends Asesor
             ->andFilterWhere(['like', 'estudios', $this->estudios])
             ->andFilterWhere(['like', 'aptitudes', $this->aptitudes])
             ->andFilterWhere(['like', 'temas_asesoria', $this->temas_asesoria])
-            ->andFilterWhere(['like', 'about_me', $this->about_me]);
+            ->andFilterWhere(['like', 'about_me', $this->about_me])
+            ->andFilterWhere(['like', 'foto', $this->foto]);
 
         return $dataProvider;
     }

@@ -11,6 +11,8 @@ use Yii;
  * @property string $nombre
  * @property string $descripcion
  * @property string $imagen
+ * @property string $icono
+ * @property string $status
  *
  * @property Asesoria[] $asesorias
  * @property Categoriaasesor[] $categoriaasesors
@@ -49,6 +51,8 @@ class Categoria extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'descripcion' => 'Descripción',
             'imagen' => 'Imagen',
+            'icono' => 'Ícono',
+            'status' => 'Estatus'
         ];
     }
 

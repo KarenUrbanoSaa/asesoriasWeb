@@ -30,9 +30,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'about_me')->textarea(['rows' => 6]) ?>
 
+    <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'categoria_id')->textInput() ?>
 
     <?= $form->field($model, 'subcategoria_id')->textInput() ?>
+
+    <?= $form->field($model, 'user_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

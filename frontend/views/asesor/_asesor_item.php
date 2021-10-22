@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="acciones">
-    <button class="boton" type="button"><a href="<?php echo "view?id=".$model->id?>">Ver perfil</a></button>
+    <a class="btn btn-outline-primary" href="<?php echo "view?id=".$model->id?>">Ver perfil</a>
     </div>
     <div class="txt-center">
         <form>

@@ -14,12 +14,17 @@ use common\widgets\Alert;
 AppAsset::register($this);
 $this->beginContent('@backend/views/layouts/base.php');
 ?>
-<main class="d-flex">
-    <?php echo $this->render('_sidebar') ?>
-
-    <div class="content-wrapper">
-        <?= Alert::widget() ?>
-        <?= $content ?>
+<main class="d-flex mt-5">
+    <div class="row">
+        <div class="col-3">
+            <?php echo $this->render('_sidebar') ?>
+        </div>
+        <div class="col-9">
+            <div class="content-wrapper">
+                <?= Alert::widget() ?>
+                <?= $content ?>
+            </div>
+        </div>
     </div>
 </main>
 <?php $this->endContent() ?>

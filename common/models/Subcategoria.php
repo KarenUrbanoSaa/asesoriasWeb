@@ -9,8 +9,10 @@ use Yii;
  *
  * @property int $id
  * @property string $nombre
- * @property string $descipcion
+ * @property string $descripcion
  * @property int $categoria_id
+ * @property int $logo
+ * @property int $status
  *
  * @property Asesoria[] $asesorias
  * @property Categoria $categoria
@@ -32,8 +34,8 @@ class Subcategoria extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'descipcion', 'categoria_id'], 'required'],
-            [['descipcion'], 'string'],
+            [['nombre', 'descripcion', 'categoria_id'], 'required'],
+            [['descripcion'], 'string'],
             [['categoria_id'], 'integer'],
             [['nombre'], 'string', 'max' => 40],
             [['categoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['categoria_id' => 'id']],
@@ -48,8 +50,10 @@ class Subcategoria extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nombre' => 'Nombre',
-            'descipcion' => 'Descipcion',
+            'descripcion' => 'Descripcion',
             'categoria_id' => 'Categoria ID',
+            'logo' => 'Logo',
+            'status' => 'Estatus'
         ];
     }
 

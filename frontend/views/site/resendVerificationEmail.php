@@ -10,6 +10,7 @@ use yii\bootstrap4\ActiveForm;
 $this->title = 'Reenviar link de cambio de contraseña';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="container">
 <div class="site-resend-verification-email">
     <h2><?= Html::encode($this->title) ?></h2>
 
@@ -22,10 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Reenviar', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('Reenviar', ['class' => 'btn btn-outline-info']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>
         </div>
     </div>
+</div>
 </div>
