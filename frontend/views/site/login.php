@@ -20,9 +20,9 @@ $this->title = 'Login';
         <div class="">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('Nombre de usuario') ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                <?= $form->field($model, 'password')->passwordInput()->label('Contraseña') ?>
 
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 

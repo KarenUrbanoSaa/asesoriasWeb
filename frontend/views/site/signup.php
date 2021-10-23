@@ -22,13 +22,9 @@ use yii\bootstrap4\ActiveForm;
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-                <?= $form->field($model, 'email') ?>
+                <?= $form->field($model, 'email')?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= 
-                    $form->field($model, 'rol')->dropDownList([ 'estudiante' => 'estudiante', 'asesor' => 'asesor'], ['prompt' => 'Elija un rol' ]);
-                ?>
                 
                 <div class="form-group">
                     <?= Html::submitButton('Regístrate', ['class' => 'btn btn-outline-info', 'name' => 'signup-button']) ?>

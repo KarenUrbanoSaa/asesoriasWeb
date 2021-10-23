@@ -1,17 +1,18 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
+use yii\data\ActiveDataProvider;
 
-use common\models\Cursos;
-use common\models\CursoSearch;
+use common\models\User;
+use common\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CursoController implements the CRUD actions for Cursos model.
+ * UserController implements the CRUD actions for User model.
  */
-class CursoController extends Controller
+class UserController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,22 +33,23 @@ class CursoController extends Controller
     }
 
     /**
-     * Lists all Cursos models.
+     * Lists all User models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id)
     {
-        $searchModel = new CursoSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => User::find()->andWhere(['subcategoria_id'=>$id])
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
+            //'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Cursos model.
+     * Displays a single User model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,38 +62,21 @@ class CursoController extends Controller
     }
 
     /**
-     * Creates a new Cursos model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Cursos();
+        $model = new User();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()){
-                //acá iba a sacar el rol o algo así
-            }
-            if($model->save()) {
+            if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
         }
-
-        $model->pln_id=3;
-			$model->nm_mpr=$_POST['Info']['nm_mpr'];
-			$model->ml_mpr=$_POST['Info']['ml_mpr'];
-			$model->nt_mpr=$_POST['Info']['nt_mpr'];
-		    $valid= $model->validate();
-		    			
-			if($valid)
-			{
-				if($model->save())
-				{	
-					$this->redirect(array('/cuenta/create','id'=>$model->id_mpr_wintadrh));//el id no debería mandarlo por get ni encriptado, creo q es mjr guardarlo en sesion
-				}
-			}
 
         return $this->render('create', [
             'model' => $model,
@@ -99,7 +84,7 @@ class CursoController extends Controller
     }
 
     /**
-     * Updates an existing Cursos model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -119,7 +104,7 @@ class CursoController extends Controller
     }
 
     /**
-     * Deletes an existing Cursos model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -133,15 +118,15 @@ class CursoController extends Controller
     }
 
     /**
-     * Finds the Cursos model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Cursos the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Cursos::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 

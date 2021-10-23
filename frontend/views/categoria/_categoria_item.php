@@ -15,7 +15,7 @@ use yii\helpers\Url;
             <ul class="navbar-nav">
             <?php 
             foreach($model->subcategorias as $k => $v){
-                echo "<li class='nav-item'><a class='nav-link text-white' href='asesor/index?id=".$v->id."'>".$v->nombre."</a></li>";
+                echo "<li class='nav-item'><a class='nav-link text-white' href='user/index?id=".$v->id."'>".$v->nombre."</a></li>";
             }
             ?>
             </ul>

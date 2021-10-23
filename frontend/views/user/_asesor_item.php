@@ -12,16 +12,16 @@
 
         <div class="social">
             <li class="agrandar">
-                <a href="#"><img src="<?php echo Yii::getAlias('@frontend')."/Imag/media/facebook.png"?>" alt="facebook" width="25" height="25"></a>
+                <a href="#"><img src="<?php echo $model->getUrlImagen()."media/facebook.png"?>" alt="facebook" width="25" height="25"></a>
             </li>
             <li class="agrandar">
-                <a href="#"><img src="<?php echo Yii::getAlias('@frontend')."/Imag/media/youtube.png"?>" alt="youtube" width="25" height="25"></a>
+                <a href="#"><img src="<?php echo $model->getUrlImagen()."media/youtube.png"?>" alt="youtube" width="25" height="25"></a>
             </li>
             <li class="agrandar">
-                <a href="#"><img src="<?php echo Yii::getAlias('@frontend')."/Imag/media/linkedin.png"?>" alt="linkedin" width="25" height="25"></a>
+                <a href="#"><img src="<?php echo $model->getUrlImagen()."media/linkedin.png"?>" alt="linkedin" width="25" height="25"></a>
             </li>
             <li class="agrandar">
-                <a href="#"><img src="<?php echo Yii::getAlias('@frontend')."/Imag/media/instagram.png"?>" alt="instagram" width="25" height="25"></a>
+                <a href="#"><img src="<?php echo $model->getUrlImagen()."media/instagram.png"?>" alt="instagram" width="25" height="25"></a>
             </li>
         </div>
     </div>

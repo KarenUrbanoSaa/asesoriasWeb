@@ -75,6 +75,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'indexlayout';
         return $this->render('index');
     }
 
@@ -99,6 +100,10 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+    }
+
+    public function actionAsesorar(){
+        return $this->render('asesorar');
     }
 
     /**

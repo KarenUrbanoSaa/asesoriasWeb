@@ -9,14 +9,16 @@ use Yii;
  *
  * @property int $id
  * @property string $nombre
- * @property string $descripcion
+ * @property string|null $descripcion
+ * @property string|null $imagen
  * @property int $categoria_id
- * @property int $logo
+ * @property string $logo
  * @property int $status
  *
- * @property Asesoria[] $asesorias
+ * @property AsesoriaCurso[] $asesoriaCursos
  * @property Categoria $categoria
  * @property Subcategoriaasesor[] $subcategoriaasesors
+ * @property User[] $users
  */
 class Subcategoria extends \yii\db\ActiveRecord
 {
@@ -34,10 +36,11 @@ class Subcategoria extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'descripcion', 'categoria_id'], 'required'],
+            [['nombre', 'categoria_id'], 'required'],
             [['descripcion'], 'string'],
-            [['categoria_id'], 'integer'],
+            [['categoria_id', 'status'], 'integer'],
             [['nombre'], 'string', 'max' => 40],
+            [['imagen', 'logo'], 'string', 'max' => 100],
             [['categoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['categoria_id' => 'id']],
         ];
     }
@@ -51,20 +54,21 @@ class Subcategoria extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
             'descripcion' => 'Descripcion',
+            'imagen' => 'Imagen',
             'categoria_id' => 'Categoria ID',
             'logo' => 'Logo',
-            'status' => 'Estatus'
+            'status' => 'Status',
         ];
     }
 
     /**
-     * Gets query for [[Asesorias]].
+     * Gets query for [[AsesoriaCursos]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\AsesoriaQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\AsesoriaCursoQuery
      */
-    public function getAsesorias()
+    public function getAsesoriaCursos()
     {
-        return $this->hasMany(Asesoria::className(), ['subcategoria_id' => 'id']);
+        return $this->hasMany(AsesoriaCurso::className(), ['subcategoria_id' => 'id']);
     }
 
     /**
@@ -85,6 +89,16 @@ class Subcategoria extends \yii\db\ActiveRecord
     public function getSubcategoriaasesors()
     {
         return $this->hasMany(Subcategoriaasesor::className(), ['subcategoria_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Users]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\UserQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(User::className(), ['subcategoria_id' => 'id']);
     }
 
     /**

@@ -18,7 +18,7 @@ $menuItems = [
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Regístrate', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Ingresa', 'url' => ['/site/login']];
-    $menuItems[] = ['label' => 'Ser tutor', 'url' => ['/site/enseñar']];
+    $menuItems[] = ['label' => 'Ser tutor', 'url' => ['/site/asesorar']];
 } else {
     $menuItems[] = ['label' => 'Cursos tomados', 'url' => ['/estudiante/cursos']];
     $menuItems[] = ['label' => 'Área de tutor', 'url' => ['/tutor/cursos']];

@@ -11,14 +11,12 @@ use Yii;
  * @property string $replica
  * @property string $fecha
  * @property int $usuario_id
- * @property int $asesor_id
  * @property string $created_by
  * @property int $status 0-inactivo 1-activo 3-editado
  * @property int $comentario_id
  *
- * @property Asesor $asesor
- * @property Comentarios $comentario
- * @property Usuario $usuario
+ * @property Comentario $comentario
+ * @property User $usuario
  */
 class Respuesta extends \yii\db\ActiveRecord
 {
@@ -36,14 +34,13 @@ class Respuesta extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['replica', 'fecha', 'usuario_id', 'asesor_id', 'created_by', 'comentario_id'], 'required'],
+            [['replica', 'fecha', 'usuario_id', 'created_by', 'comentario_id'], 'required'],
             [['fecha'], 'safe'],
-            [['usuario_id', 'asesor_id', 'status', 'comentario_id'], 'integer'],
+            [['usuario_id', 'status', 'comentario_id'], 'integer'],
             [['replica'], 'string', 'max' => 1000],
             [['created_by'], 'string', 'max' => 20],
-            [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['usuario_id' => 'id']],
-            [['asesor_id'], 'exist', 'skipOnError' => true, 'targetClass' => Asesor::className(), 'targetAttribute' => ['asesor_id' => 'id']],
+            [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentario::className(), 'targetAttribute' => ['comentario_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
@@ -57,7 +54,6 @@ class Respuesta extends \yii\db\ActiveRecord
             'replica' => 'Replica',
             'fecha' => 'Fecha',
             'usuario_id' => 'Usuario ID',
-            'asesor_id' => 'Asesor ID',
             'created_by' => 'Created By',
             'status' => 'Status',
             'comentario_id' => 'Comentario ID',
@@ -65,33 +61,23 @@ class Respuesta extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Asesor]].
-     *
-     * @return \yii\db\ActiveQuery|\common\models\query\AsesorQuery
-     */
-    public function getAsesor()
-    {
-        return $this->hasOne(Asesor::className(), ['id' => 'asesor_id']);
-    }
-
-    /**
      * Gets query for [[Comentario]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\ComentariosQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\ComentarioQuery
      */
     public function getComentario()
     {
-        return $this->hasOne(Comentarios::className(), ['id' => 'comentario_id']);
+        return $this->hasOne(Comentario::className(), ['id' => 'comentario_id']);
     }
 
     /**
      * Gets query for [[Usuario]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\UsuarioQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\UserQuery
      */
     public function getUsuario()
     {
-        return $this->hasOne(Usuario::className(), ['id' => 'usuario_id']);
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
     /**

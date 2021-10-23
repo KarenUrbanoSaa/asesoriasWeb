@@ -12,11 +12,12 @@ use Yii;
  * @property string $descripcion
  * @property string $imagen
  * @property string $icono
- * @property string $status
+ * @property int $status
  *
- * @property Asesoria[] $asesorias
+ * @property AsesoriaCurso[] $asesoriaCursos
  * @property Categoriaasesor[] $categoriaasesors
  * @property Subcategoria[] $subcategorias
+ * @property User[] $users
  */
 class Categoria extends \yii\db\ActiveRecord
 {
@@ -35,9 +36,11 @@ class Categoria extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'descripcion', 'imagen'], 'required'],
+            [['status'], 'integer'],
             [['nombre'], 'string', 'max' => 40],
             [['descripcion'], 'string', 'max' => 255],
             [['imagen'], 'string', 'max' => 200],
+            [['icono'], 'string', 'max' => 50],
         ];
     }
 
@@ -49,21 +52,21 @@ class Categoria extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nombre' => 'Nombre',
-            'descripcion' => 'Descripción',
+            'descripcion' => 'Descripcion',
             'imagen' => 'Imagen',
-            'icono' => 'Ícono',
-            'status' => 'Estatus'
+            'icono' => 'Icono',
+            'status' => 'Status',
         ];
     }
 
     /**
-     * Gets query for [[Asesorias]].
+     * Gets query for [[AsesoriaCursos]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\AsesoriaQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\AsesoriaCursoQuery
      */
-    public function getAsesorias()
+    public function getAsesoriaCursos()
     {
-        return $this->hasMany(Asesoria::className(), ['categoria_id' => 'id']);
+        return $this->hasMany(AsesoriaCurso::className(), ['categoria_id' => 'id']);
     }
 
     /**
@@ -84,6 +87,16 @@ class Categoria extends \yii\db\ActiveRecord
     public function getSubcategorias()
     {
         return $this->hasMany(Subcategoria::className(), ['categoria_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Users]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\UserQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(User::className(), ['categoria_id' => 'id']);
     }
 
     /**

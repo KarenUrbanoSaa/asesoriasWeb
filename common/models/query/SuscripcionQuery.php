@@ -3,11 +3,11 @@
 namespace common\models\query;
 
 /**
- * This is the ActiveQuery class for [[\common\models\Asesoria]].
+ * This is the ActiveQuery class for [[\common\models\Suscripcion]].
  *
- * @see \common\models\Asesoria
+ * @see \common\models\Suscripcion
  */
-class AsesoriaQuery extends \yii\db\ActiveQuery
+class SuscripcionQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class AsesoriaQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Asesoria[]|array
+     * @return \common\models\Suscripcion[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class AsesoriaQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Asesoria|array|null
+     * @return \common\models\Suscripcion|array|null
      */
     public function one($db = null)
     {

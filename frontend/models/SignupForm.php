@@ -14,7 +14,6 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $rol;
 
 
     /**
@@ -35,7 +34,6 @@ class SignupForm extends Model
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'La dirección de correo ingresada ya se encuentra registrada'],
 
             ['password', 'required'],
-            ['rol', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
         ];
     }
@@ -57,7 +55,7 @@ class SignupForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
-        $user->rol = $this->rol;
+        //$user->rol = $this->rol;
 
         return $user->save() && $this->sendEmail($user);
     }

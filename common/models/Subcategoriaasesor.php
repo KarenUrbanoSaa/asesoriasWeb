@@ -11,7 +11,7 @@ use Yii;
  * @property int $asesor_id
  * @property int $subcategoria_id
  *
- * @property Asesor $asesor
+ * @property User $asesor
  * @property Subcategoria $subcategoria
  */
 class Subcategoriaasesor extends \yii\db\ActiveRecord
@@ -32,8 +32,8 @@ class Subcategoriaasesor extends \yii\db\ActiveRecord
         return [
             [['asesor_id', 'subcategoria_id'], 'required'],
             [['asesor_id', 'subcategoria_id'], 'integer'],
-            [['asesor_id'], 'exist', 'skipOnError' => true, 'targetClass' => Asesor::className(), 'targetAttribute' => ['asesor_id' => 'id']],
             [['subcategoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Subcategoria::className(), 'targetAttribute' => ['subcategoria_id' => 'id']],
+            [['asesor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['asesor_id' => 'id']],
         ];
     }
 
@@ -52,11 +52,11 @@ class Subcategoriaasesor extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Asesor]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\AsesorQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\UserQuery
      */
     public function getAsesor()
     {
-        return $this->hasOne(Asesor::className(), ['id' => 'asesor_id']);
+        return $this->hasOne(User::className(), ['id' => 'asesor_id']);
     }
 
     /**

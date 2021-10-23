@@ -3,11 +3,11 @@
 namespace common\models\query;
 
 /**
- * This is the ActiveQuery class for [[\common\models\Ordencompra]].
+ * This is the ActiveQuery class for [[\common\models\AsesoriasDeUsuario]].
  *
- * @see \common\models\Ordencompra
+ * @see \common\models\AsesoriasDeUsuario
  */
-class OrdencompraQuery extends \yii\db\ActiveQuery
+class AsesoriasDeUsuarioQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class OrdencompraQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Ordencompra[]|array
+     * @return \common\models\AsesoriasDeUsuario[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class OrdencompraQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Ordencompra|array|null
+     * @return \common\models\AsesoriasDeUsuario|array|null
      */
     public function one($db = null)
     {

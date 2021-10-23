@@ -12,14 +12,12 @@ use Yii;
  * @property string $fecha
  * @property string $created_by si es asesor o usuario
  * @property int $usuario_id
- * @property int $asesor_id
  * @property int $status 0-inactivo 1-activo 3-editado
  * @property int $unidad_id
  *
- * @property Asesor $asesor
  * @property Respuesta[] $respuestas
- * @property Unidad $unidad
- * @property Usuario $usuario
+ * @property UnidadTema $unidad
+ * @property User $usuario
  */
 class Comentario extends \yii\db\ActiveRecord
 {
@@ -37,14 +35,13 @@ class Comentario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['comentario', 'fecha', 'created_by', 'usuario_id', 'asesor_id', 'unidad_id'], 'required'],
+            [['comentario', 'created_by', 'usuario_id', 'unidad_id'], 'required'],
             [['fecha'], 'safe'],
-            [['usuario_id', 'asesor_id', 'status', 'unidad_id'], 'integer'],
+            [['usuario_id', 'status', 'unidad_id'], 'integer'],
             [['comentario'], 'string', 'max' => 1000],
             [['created_by'], 'string', 'max' => 20],
-            [['unidad_id'], 'exist', 'skipOnError' => true, 'targetClass' => Unidad::className(), 'targetAttribute' => ['unidad_id' => 'id']],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['usuario_id' => 'id']],
-            [['asesor_id'], 'exist', 'skipOnError' => true, 'targetClass' => Asesor::className(), 'targetAttribute' => ['asesor_id' => 'id']],
+            [['unidad_id'], 'exist', 'skipOnError' => true, 'targetClass' => UnidadTema::className(), 'targetAttribute' => ['unidad_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
@@ -59,20 +56,9 @@ class Comentario extends \yii\db\ActiveRecord
             'fecha' => 'Fecha',
             'created_by' => 'Created By',
             'usuario_id' => 'Usuario ID',
-            'asesor_id' => 'Asesor ID',
             'status' => 'Status',
             'unidad_id' => 'Unidad ID',
         ];
-    }
-
-    /**
-     * Gets query for [[Asesor]].
-     *
-     * @return \yii\db\ActiveQuery|\common\models\query\AsesorQuery
-     */
-    public function getAsesor()
-    {
-        return $this->hasOne(Asesor::className(), ['id' => 'asesor_id']);
     }
 
     /**
@@ -88,21 +74,21 @@ class Comentario extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Unidad]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\UnidadQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\UnidadTemaQuery
      */
     public function getUnidad()
     {
-        return $this->hasOne(Unidad::className(), ['id' => 'unidad_id']);
+        return $this->hasOne(UnidadTema::className(), ['id' => 'unidad_id']);
     }
 
     /**
      * Gets query for [[Usuario]].
      *
-     * @return \yii\db\ActiveQuery|\common\models\query\UsuarioQuery
+     * @return \yii\db\ActiveQuery|\common\models\query\UserQuery
      */
     public function getUsuario()
     {
-        return $this->hasOne(Usuario::className(), ['id' => 'usuario_id']);
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
     /**

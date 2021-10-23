@@ -3,11 +3,11 @@
 namespace common\models\query;
 
 /**
- * This is the ActiveQuery class for [[\common\models\Detalleventa]].
+ * This is the ActiveQuery class for [[\common\models\AsesoriaCurso]].
  *
- * @see \common\models\Detalleventa
+ * @see \common\models\AsesoriaCurso
  */
-class DetalleventaQuery extends \yii\db\ActiveQuery
+class AsesoriaCursoQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class DetalleventaQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Detalleventa[]|array
+     * @return \common\models\AsesoriaCurso[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class DetalleventaQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Detalleventa|array|null
+     * @return \common\models\AsesoriaCurso|array|null
      */
     public function one($db = null)
     {
