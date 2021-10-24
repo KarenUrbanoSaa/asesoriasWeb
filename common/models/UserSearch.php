@@ -17,8 +17,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'num_identificacion', 'status', 'created_at', 'updated_at', 'apellido', 'estudios', 'categoria_id', 'subcategoria_id'], 'integer'],
-            [['foto', 'username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'verification_token', 'rol', 'nombre', 'telefono', 'aptitudes', 'temas_asesoria', 'intereses', 'about_me', 'observaciones'], 'safe'],
+            [['id', 'num_identificacion'], 'integer'],
+            [['foto', 'nombre', 'telefono', 'temas_asesoria', 'intereses', 'about_me'], 'safe'],
         ];
     }
 
@@ -64,9 +64,7 @@ class UserSearch extends User
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'apellido' => $this->apellido,
-            'estudios' => $this->estudios,
-            'categoria_id' => $this->categoria_id,
-            'subcategoria_id' => $this->subcategoria_id,
+            'estudios' => $this->estudios
         ]);
 
         $query->andFilterWhere(['like', 'foto', $this->foto])
@@ -79,7 +77,7 @@ class UserSearch extends User
             ->andFilterWhere(['like', 'rol', $this->rol])
             ->andFilterWhere(['like', 'nombre', $this->nombre])
             ->andFilterWhere(['like', 'telefono', $this->telefono])
-            ->andFilterWhere(['like', 'aptitudes', $this->aptitudes])
+            ->andFilterWhere(['like', 'experiencia', $this->experiencia])
             ->andFilterWhere(['like', 'temas_asesoria', $this->temas_asesoria])
             ->andFilterWhere(['like', 'intereses', $this->intereses])
             ->andFilterWhere(['like', 'about_me', $this->about_me])

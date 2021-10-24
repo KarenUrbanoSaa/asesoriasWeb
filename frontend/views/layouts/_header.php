@@ -18,10 +18,14 @@ $menuItems = [
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Regístrate', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Ingresa', 'url' => ['/site/login']];
-    $menuItems[] = ['label' => 'Ser tutor', 'url' => ['/site/asesorar']];
+    $menuItems[] = ['label' => 'Ser asesor', 'url' => ['/site/signup']];
 } else {
     $menuItems[] = ['label' => 'Cursos tomados', 'url' => ['/estudiante/cursos']];
-    $menuItems[] = ['label' => 'Área de tutor', 'url' => ['/tutor/cursos']];
+    if( Yii::$app->user->identity->rol !== 'estudiante' ){
+        $menuItems[] = ['label' => 'Área de asesores', 'url' => ['/tutor/cursos']];
+    }else{
+        $menuItems[] = ['label' => 'Ser asesor', 'url' => ['/user/update?id='.Yii::$app->user->identity->id]];
+    }
     $menuItems[] = [
         'label' => 'Salir('.Yii::$app->user->identity->username.')',
         'url' => ['/site/logout'],

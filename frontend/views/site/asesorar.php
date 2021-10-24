@@ -1,8 +1,5 @@
 <?php
-    if (!Yii::$app->user->isGuest) {
-        echo $this->renderPartial('site/signup');
-        echo 'hola';
-    }
+    
 ?>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus qui molestiae minima ut assumenda nisi soluta molestias veritatis, necessitatibus sapiente consequuntur cum at nesciunt earum quam omnis beatae amet facere.
 Officiis, hic quidem saepe ex accusamus dolor rem praesentium, inventore sunt voluptas totam provident eum perferendis iure fugit perspiciatis ducimus facere repellendus atque optio numquam reiciendis! Unde enim dolorum temporibus.

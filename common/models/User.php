@@ -28,7 +28,7 @@ use yii\web\IdentityInterface;
  * @property int|null $apellido
  * @property int|null $estudios
  * @property string|null $telefono
- * @property string|null $aptitudes
+ * @property string|null $experiencia
  * @property string|null $temas_asesoria
  * @property string|null $intereses
  * @property string|null $about_me
@@ -74,20 +74,18 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function rules()
     {
-        return [
-            [['num_identificacion', 'status', 'created_at', 'updated_at', 'apellido', 'estudios', 'categoria_id', 'subcategoria_id'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+        return [  
+            //[['num_identificacion', 'integer'],
             [['intereses', 'about_me', 'observaciones'], 'string'],
             [['foto'], 'string', 'max' => 40],
-            [['username', 'password_hash', 'password_reset_token', 'email', 'verification_token', 'aptitudes', 'temas_asesoria'], 'string', 'max' => 255],
-            [['auth_key'], 'string', 'max' => 32],
-            [['rol'], 'string', 'max' => 10],
+            [['username','experiencia', 'temas_asesoria'], 'string', 'max' => 255],
+            //[['auth_key'], 'string', 'max' => 32],
+            //[['rol'], 'string', 'max' => 10],
             [['nombre'], 'string', 'max' => 30],
             [['telefono'], 'string', 'max' => 20],
-            [['username'], 'unique'],
-            [['email'], 'unique'],
-            [['password_reset_token'], 'unique'],
-            
+            //[['username'], 'unique'],
+            //[['email'], 'unique'],
+            //[['password_reset_token'], 'unique'],          
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED],'message'=>'La contraseña debe tener al menos 8 caracteres'],
         ];
@@ -269,7 +267,7 @@ class User extends ActiveRecord implements IdentityInterface
             'apellido' => 'Apellido',
             'estudios' => 'Estudios',
             'telefono' => 'Telefono',
-            'aptitudes' => 'Aptitudes',
+            'experiencia' => 'Experiencia',
             'temas_asesoria' => 'Temas Asesoria',
             'intereses' => 'Intereses',
             'about_me' => 'About Me',

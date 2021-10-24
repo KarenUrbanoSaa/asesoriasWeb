@@ -103,6 +103,11 @@ class SiteController extends Controller
     }
 
     public function actionAsesorar(){
+        $model = new SignupForm();
+        if (!Yii::$app->user->isGuest) {
+            return $this->renderPartial('signup',['model'=>$model]);
+        }
+
         return $this->render('asesorar');
     }
 
