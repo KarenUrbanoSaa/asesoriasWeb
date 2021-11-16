@@ -7,7 +7,7 @@ $this->title = 'Inicio';
 <div class="site-index">
 <section id="wrapper">
         <hgroup>
-            <h2>Acesoria y Consultoria</h2>
+            <h2>Acesoria y Consultoriaeeeeeee</h2>
             <h3>Uno de los pilares de nuestro grupo es prestar el servicio de asesoría
                 y consultoría en las siguientes áreas:</h3>
         </hgroup>

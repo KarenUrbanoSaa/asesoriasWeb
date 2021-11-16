@@ -1,12 +1,12 @@
 <div class="card">
     <div class="encabezado">
-        <img src="<?php echo Yii::getAlias('@frontend')."/Imag/media/".$model->foto?>" width="200" height="200" alt="">
+        <img src="<?php echo $model->getUrlImagen()."media/".$model->foto?>" width="200" height="200" alt="">
     </div>
 
     <div class="contenido">
         <div class="info_personal desplazar disabled"><?php echo $model->nombre." ".$model->apellido?></div>
         <div class="info_personal desplazar"><?php echo $model->estudios?></div>
-        <div class="info_personal desplazar"><?php echo $model->expericencia?></div>
+        <div class="info_personal desplazar"><?php echo $model->experiencia?></div>
     </div>
     <div class="container">
 

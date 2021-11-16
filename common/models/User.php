@@ -50,6 +50,7 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
 
+    public $fileImage;
 
     /**
      * {@inheritdoc}
@@ -72,16 +73,18 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules()//debo poner algunos campos como requeridos, pero no puedo porque no me deja crear el usuario y la contraseña, tal vez deva modificar el validate en signup
     {
         return [  
             //[['num_identificacion', 'integer'],
-            [['intereses', 'about_me', 'observaciones'], 'string'],
+            [['intereses', 'about_me'], 'string'],
+            [['fileImage'],'file','extensions' => 'jpg,png,jpeg'],
             [['foto'], 'string', 'max' => 40],
-            [['username','experiencia', 'temas_asesoria'], 'string', 'max' => 255],
+            [['experiencia', 'temas_asesoria'], 'string', 'max' => 255],
             //[['auth_key'], 'string', 'max' => 32],
             //[['rol'], 'string', 'max' => 10],
             [['nombre'], 'string', 'max' => 30],
+            [['apellido'], 'string', 'max' => 40],
             [['telefono'], 'string', 'max' => 20],
             //[['username'], 'unique'],
             //[['email'], 'unique'],
@@ -267,7 +270,7 @@ class User extends ActiveRecord implements IdentityInterface
             'apellido' => 'Apellido',
             'estudios' => 'Estudios',
             'telefono' => 'Telefono',
-            'experiencia' => 'Experiencia',
+            'experiencia' => 'Experiencia profesional',
             'temas_asesoria' => 'Temas Asesoria',
             'intereses' => 'Intereses',
             'about_me' => 'About Me',

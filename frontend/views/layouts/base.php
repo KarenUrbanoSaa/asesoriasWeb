@@ -34,11 +34,9 @@ AppAsset::register($this);
 <body id="page-top">
 <?php $this->beginBody() ?>
 
-<div style="margin-top: 250px" class="wrap h-100 d-flex flex-column">
+<div class="wrap h-100 d-flex flex-column">
     <?php echo $this->render('_header') ?>
-    <main role="main" class="d-flex">
         <?php echo $content ?>
-    </main>
 </div>
 
 <!-- Bootstrap core JS-->

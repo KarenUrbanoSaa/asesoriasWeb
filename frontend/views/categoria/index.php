@@ -16,7 +16,7 @@ $this->title = 'Categorias';
     <div class="container">
         <div class="masthead-subheading">Bienvenido!</div>
         <div class="masthead-heading text-uppercase">¿Sobre qué quieres aprender hoy?</div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Ver temas</a>
     </div>
 </header>
 <!-- Services-->

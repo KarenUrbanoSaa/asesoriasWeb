@@ -240,10 +240,10 @@ main h1 {
 body {
     font-family: roboto-sans-serif;
     padding: 50px;
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100vh; */
 }
 
 .contenedor {
@@ -562,7 +562,6 @@ body{
 	font-family:Cambria, Georgia, serif;
 	line-height:1.5;
 	font-size:100%;
-	background:url(bg.png) 0 0 repeat;
 	margin: 0;
 	padding: 0;
 }

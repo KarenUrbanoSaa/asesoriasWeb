@@ -17,9 +17,10 @@ use Yii;
  * @property string|null $likes
  * @property int $created_by
  * @property int $num_subscriptores
+ * @property string|null $subcategorias_pertenece
  * @property int $categoria_id
- * @property int $subcategoria_id
  *
+ * @property AsesoriaSubcategoria[] $asesoriaSubcategorias
  * @property AsesoriasDeUsuario[] $asesoriasDeUsuarios
  * @property Categoria $categoria
  * @property Clases[] $clases
@@ -45,15 +46,14 @@ class AsesoriaCurso extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['titulo', 'fecha', 'created_by', 'num_subscriptores', 'categoria_id', 'subcategoria_id'], 'required'],
+            [['titulo', 'fecha'], 'required'],
             [['fecha'], 'safe'],
-            [['status', 'created_by', 'num_subscriptores', 'categoria_id', 'subcategoria_id'], 'integer'],
+            [['status', 'created_by', 'num_subscriptores', 'categoria_id'], 'integer'],
             [['titulo', 'imagen'], 'string', 'max' => 100],
-            [['descripcion'], 'string', 'max' => 500],
-            [['url_video'], 'string', 'max' => 255],
+            [['descripcion'], 'string'],
+            [['url_video','subcategorias_pertenece'], 'string', 'max' => 255],
             [['likes'], 'string', 'max' => 20],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['subcategoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Subcategoria::className(), 'targetAttribute' => ['subcategoria_id' => 'id']],
             [['categoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['categoria_id' => 'id']],
         ];
     }
@@ -65,18 +65,28 @@ class AsesoriaCurso extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'titulo' => 'Titulo',
-            'descripcion' => 'Descripcion',
+            'titulo' => 'Dale un título a tu asesoría',
+            'descripcion' => 'Detalla qué se aprenderá con tu asesoría',
             'imagen' => 'Imagen',
             'url_video' => 'Url Video',
             'fecha' => 'Fecha',
-            'status' => 'Status',
+            'status' => 'Estatus',
             'likes' => 'Likes',
-            'created_by' => 'Created By',
-            'num_subscriptores' => 'Num Subscriptores',
-            'categoria_id' => 'Categoria ID',
-            'subcategoria_id' => 'Subcategoria ID',
+            'created_by' => 'Asesor',
+            'num_subscriptores' => 'Subscriptores',
+            'categoria_id' => 'Categoria',
+            'subcategorias_pertenece' => 'Subcategorias',
         ];
+    }
+
+    /**
+     * Gets query for [[AsesoriaSubcategorias]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\AsesoriaSubcategoriaQuery
+     */
+    public function getAsesoriaSubcategorias()
+    {
+        return $this->hasMany(AsesoriaSubcategoria::className(), ['asesoria_id' => 'id']);
     }
 
     /**
@@ -130,16 +140,6 @@ class AsesoriaCurso extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Subcategoria]].
-     *
-     * @return \yii\db\ActiveQuery|\common\models\query\SubcategoriaQuery
-     */
-    public function getSubcategoria()
-    {
-        return $this->hasOne(Subcategoria::className(), ['id' => 'subcategoria_id']);
-    }
-
-    /**
      * Gets query for [[Suscripcions]].
      *
      * @return \yii\db\ActiveQuery|\common\models\query\SuscripcionQuery
@@ -166,5 +166,10 @@ class AsesoriaCurso extends \yii\db\ActiveRecord
     public static function find()
     {
         return new \common\models\query\AsesoriaCursoQuery(get_called_class());
+    }
+
+    //obtener el id del usuario logueado
+    public function idUsuario(){
+        return Yii::$app->user->identity->id;
     }
 }

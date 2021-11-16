@@ -11,27 +11,32 @@ NavBar::begin([
     ],
 ]);
 $menuItems = [
-    ['label' => 'Inicio', 'url' => ['/categoria/index']],
     ['label' => 'Servicios', 'url' => ['/site/about']],
     ['label' => 'Contacto', 'url' => ['/site/contact']],
+];
+$subItems = [
+    ['label' => 'Cuenta', 'url' => ['/']],
+    ['label' => 'Perfil', 'url' => ['/site/about']],
+    ['label' => 'mensajes', 'url' => ['/site/contact']],
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Regístrate', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Ingresa', 'url' => ['/site/login']];
     $menuItems[] = ['label' => 'Ser asesor', 'url' => ['/site/signup']];
 } else {
-    $menuItems[] = ['label' => 'Cursos tomados', 'url' => ['/estudiante/cursos']];
+    $menuItems[] = ['label' => 'Asesorías tomadas', 'url' => ['/estudiante/cursos']];
     if( Yii::$app->user->identity->rol !== 'estudiante' ){
-        $menuItems[] = ['label' => 'Área de asesores', 'url' => ['/tutor/cursos']];
+        $menuItems[] = ['label' => 'Área de asesores', 'url' => ['/asesoria/index']];
     }else{
-        $menuItems[] = ['label' => 'Ser asesor', 'url' => ['/user/update?id='.Yii::$app->user->identity->id]];
+        $menuItems[] = ['label' => 'Ser asesor', 'url' => ['/user/update']];
     }
     $menuItems[] = [
         'label' => 'Salir('.Yii::$app->user->identity->username.')',
         'url' => ['/site/logout'],
         'linkOptions' => [
             'data-method' => 'post'
-        ]
+        ],
+        'items' => $subItems
     ];
 }
 echo Nav::widget([

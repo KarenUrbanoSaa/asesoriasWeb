@@ -86,6 +86,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = "auth";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -130,6 +131,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $this->layout = "auth";
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -168,6 +170,7 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+        $this->layout = "auth";
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Hemos enviado un mensaje de verificación a tu correo, sigue el enlace enviado para confirmar el registro.');
@@ -187,6 +190,7 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
+        $this->layout = "auth";
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -212,6 +216,7 @@ class SiteController extends Controller
      */
     public function actionResetPassword($token)
     {
+        $this->layout = "auth";
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidArgumentException $e) {
@@ -238,6 +243,7 @@ class SiteController extends Controller
      */
     public function actionVerifyEmail($token)
     {
+        $this->layout = "auth";
         try {
             $model = new VerifyEmailForm($token);
         } catch (InvalidArgumentException $e) {
@@ -259,6 +265,7 @@ class SiteController extends Controller
      */
     public function actionResendVerificationEmail()
     {
+        $this->layout = "auth";
         $model = new ResendVerificationEmailForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {

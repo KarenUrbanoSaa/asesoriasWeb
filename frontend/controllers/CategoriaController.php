@@ -38,6 +38,7 @@ class CategoriaController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'indexlayout';
         //$searchModel = new CategoriaSearch();
         $dataProvider = new ActiveDataProvider([
             'query' => Categoria::find()

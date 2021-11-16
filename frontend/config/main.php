@@ -14,6 +14,7 @@ return [
     'language'=>'es',
     'sourceLanguage'=>'en',
     'name' => 'AsesoríasWeb',
+    'homeUrl' => '/',
     'defaultRoute' => '/categoria/index',
     'components' => [
         'request' => [
@@ -45,9 +46,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'user/view/<id>' => 'user/view',
+                'categoria' => 'index'
             ],
-        ],
-       
+        ],    
     ],
     'params' => $params,
 ];
