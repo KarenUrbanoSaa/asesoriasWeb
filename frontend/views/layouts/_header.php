@@ -11,7 +11,7 @@ NavBar::begin([
     ],
 ]);
 $menuItems = [
-    ['label' => 'Servicios', 'url' => ['/site/about']],
+    ['label' => 'Preguntas Frecuentes', 'url' => ['/site/about']],
     ['label' => 'Contacto', 'url' => ['/site/contact']],
 ];
 $subItems = [
